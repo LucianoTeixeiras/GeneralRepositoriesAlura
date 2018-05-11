@@ -1,9 +1,13 @@
+set serveroutput on
+
 declare
 
-    v_id numebr(5);
-
+    v_id number(5) := 1 ;
+    
 begin
 
-    v_id;
+    v_id := 5;
+
+    dbms_output.put_line(v_id);
 
 end;
