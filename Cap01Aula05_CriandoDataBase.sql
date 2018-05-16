@@ -1,6 +1,6 @@
 --Criando Usuario para o Curso
 
-CREATE USER cursoplsql IDENTIFIED BY cursoplsql
+CREATE USER cursoplsql IDENTIFIED BY CURSOPLSQL
 DEFAULT tablespace users;
 
 --Concedendo Privilégios

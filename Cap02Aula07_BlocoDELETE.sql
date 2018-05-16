@@ -27,3 +27,5 @@ BEGIN
     COMMIT;
     
 END;
+
+select * from SEGMERCADO;
