@@ -1,9 +1,12 @@
---Erros de Execução
+--------------------------------------------------------
+--  File created - Tuesday-May-22-2018   
+--------------------------------------------------------
+--------------------------------------------------------
+--  DDL for Procedure INCLUIR_CLIENTE
+--------------------------------------------------------
+set define off;
 
---Gerando Erro
-EXEC incluir_cliente(NULL,'Industria RTY','12378',NULL,110000);
-
-CREATE OR REPLACE PROCEDURE incluir_cliente (
+  CREATE OR REPLACE PROCEDURE "CURSOPLSQL"."INCLUIR_CLIENTE" (
     p_id                     IN cliente.id%TYPE,
     p_razao_social           IN cliente.razao_social%TYPE,
     p_cnpj                   cliente.cnpj%TYPE,
@@ -38,12 +41,4 @@ EXCEPTION
         raise_application_error(-20020,sqlerrm() );
 END;
 
---Gerando Erro Com Exception Pragma
-
-EXEC incluir_cliente(NULL,'Industria RTY','12378',NULL,110000);
-
---Gerando Erro Com Exception When Others Then
-
-select * from cliente;
-
-EXEC incluir_cliente(4,'Industria XPTO','12378',10,110000);
+/
