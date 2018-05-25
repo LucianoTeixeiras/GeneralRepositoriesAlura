@@ -5,14 +5,14 @@ public class TestaContaSemCliente {
 		// TODO Auto-generated method stub
 		
 		Conta contaDaMarcela = new Conta();
-		System.out.println(contaDaMarcela.saldo);
+		System.out.println(contaDaMarcela.getSaldo());
 		
 		
-		contaDaMarcela.titular = new Cliente();
-		System.out.println(contaDaMarcela.titular);
+		//contaDaMarcela.titular = new Cliente();
+		System.out.println(contaDaMarcela.getTitular());
 
-		contaDaMarcela.titular.nome = "Marcela";
-		System.out.println(contaDaMarcela.titular.nome);
+		contaDaMarcela.getTitular().nome = "Marcela";
+		System.out.println(contaDaMarcela.getTitular().nome);
 
 	}
 
