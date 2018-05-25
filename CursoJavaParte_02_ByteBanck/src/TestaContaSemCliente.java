@@ -11,8 +11,8 @@ public class TestaContaSemCliente {
 		//contaDaMarcela.titular = new Cliente();
 		System.out.println(contaDaMarcela.getTitular());
 
-		contaDaMarcela.getTitular().nome = "Marcela";
-		System.out.println(contaDaMarcela.getTitular().nome);
+		contaDaMarcela.getTitular().setNome("Marcela");
+		System.out.println(contaDaMarcela.getTitular().getNome());
 
 	}
 
