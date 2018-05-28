@@ -5,13 +5,19 @@ public class Conta {
 	private int agencia = 42;
 	private int numero;
 	private Cliente titular = new Cliente();
-	
-	
+	// Contabiliza as Instancias de Conta
+	private static int total;
 
 	public Conta(int agencia, int numero) {
+
+		total++;
+
+		System.out.println("O Total de Instancias de Conta é: " + total);
+
 		this.agencia = agencia;
 		this.numero = numero;
-		System.out.println("Estou criando uma conta: " + this.numero + " Da Agencia: " + this.agencia);;
+		System.out.println("Estou criando uma conta: " + this.numero + " Da Agencia: " + this.agencia);
+		;
 	}
 
 	public void deposita(double valor) {
@@ -80,6 +86,10 @@ public class Conta {
 
 	public void setTitular(Cliente titular) {
 		this.titular = titular;
+	}
+
+	public static int getTotal() {
+		return Conta.total;
 	}
 
 }
