@@ -5,6 +5,14 @@ public class Conta {
 	private int agencia = 42;
 	private int numero;
 	private Cliente titular = new Cliente();
+	
+	
+
+	public Conta(int agencia, int numero) {
+		this.agencia = agencia;
+		this.numero = numero;
+		System.out.println("Estou criando uma conta: " + this.numero + " Da Agencia: " + this.agencia);;
+	}
 
 	public void deposita(double valor) {
 
@@ -43,6 +51,13 @@ public class Conta {
 	}
 
 	public void setNumero(int numero) {
+		if (numero <= 0) {
+
+			System.out.println("Valor negativo para Número não ermitido!!!");
+			return;
+
+		}
+
 		this.numero = numero;
 	}
 
@@ -51,6 +66,11 @@ public class Conta {
 	}
 
 	public void setAgencia(int agencia) {
+		if (agencia <= 0) {
+
+			System.out.println("Valor negativo para Agência não ermitido!!!");
+			return;
+		}
 		this.agencia = agencia;
 	}
 
