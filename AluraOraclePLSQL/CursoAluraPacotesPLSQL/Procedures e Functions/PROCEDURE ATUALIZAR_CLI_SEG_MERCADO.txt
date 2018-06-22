@@ -1,0 +1,21 @@
+CREATE OR REPLACE PROCEDURE ATUALIZAR_CLI_SEG_MERCADO
+    (p_id cliente.id%type,
+     p_segmercado_id cliente.segmercado_id%type)
+IS
+        e_fk exception;
+        pragma exception_init(e_fk, -2291);
+        e_no_update exception;
+BEGIN
+    UPDATE cliente
+        SET segmercado_id = p_segmercado_id
+        WHERE id = p_id;
+    IF SQL%NOTFOUND then
+        RAISE e_no_update;
+    END IF;
+    COMMIT;
+EXCEPTION
+    WHEN e_fk then
+        RAISE_APPLICATION_ERROR (-20001,'Segmento de Mercado Inexistente');
+    WHEN e_no_update then
+       RAISE_APPLICATION_ERROR (-20002,'Cliente Inexistente');
+END;

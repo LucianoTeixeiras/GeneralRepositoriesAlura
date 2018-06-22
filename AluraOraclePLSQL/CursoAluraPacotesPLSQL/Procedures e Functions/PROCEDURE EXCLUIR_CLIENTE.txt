@@ -1,0 +1,15 @@
+CREATE OR REPLACE PROCEDURE EXCLUIR_CLIENTE
+    (p_id in cliente.id%type)
+IS 
+    e_error_id exception;
+BEGIN
+    DELETE FROM cliente
+        WHERE id = p_id;
+    IF SQL%NOTFOUND THEN
+        RAISE e_error_id;
+    END IF;
+    COMMIT;
+EXCEPTION
+    WHEN e_error_id then
+        raise_application_error(-20010,'Cliente inexistente');
+END;

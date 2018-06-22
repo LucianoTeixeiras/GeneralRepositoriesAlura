@@ -1,0 +1,12 @@
+CREATE OR REPLACE PROCEDURE INCLUIR_SEGMERCADO
+    (p_id in segmercado.id%type,
+     p_descricao in segmercado.descricao%type)
+IS
+ BEGIN
+    INSERT into segmercado 
+       values(p_id, UPPER(p_descricao));
+    COMMIT;
+EXCEPTION
+    WHEN dup_val_on_index THEN
+        raise_application_error(-20001,'Segmento de Mercado já Cadastrado');
+END;

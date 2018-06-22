@@ -1,0 +1,21 @@
+CREATE OR REPLACE PROCEDURE ATUALIZAR_FATURAMENTO_PREVISTO
+    (p_id in cliente.id%type,
+     p_faturamento_previsto in cliente.faturamento_previsto%type)
+IS 
+    v_categoria cliente.categoria%type;
+    e_error_id exception;
+BEGIN
+    v_categoria := obter_categoria_cliente(p_faturamento_previsto);
+    UPDATE cliente
+        SET categoria = v_categoria,
+            faturamento_previsto = p_faturamento_previsto
+        WHERE id = p_id;
+    IF SQL%NOTFOUND THEN
+        RAISE e_error_id;
+    END IF;
+    COMMIT;
+EXCEPTION
+    WHEN e_error_id then
+        raise_application_error(-20010,'Cliente inexistente');
+END;
+/

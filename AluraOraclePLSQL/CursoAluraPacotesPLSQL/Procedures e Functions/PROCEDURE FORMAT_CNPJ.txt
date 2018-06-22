@@ -1,0 +1,6 @@
+CREATE OR REPLACE PROCEDURE FORMAT_CNPJ 
+			(p_cnpj IN OUT varchar2)
+IS
+BEGIN
+	p_cnpj := substr(p_cnpj,1,2) ||'/'|| substr(p_cnpj,3);
+END;

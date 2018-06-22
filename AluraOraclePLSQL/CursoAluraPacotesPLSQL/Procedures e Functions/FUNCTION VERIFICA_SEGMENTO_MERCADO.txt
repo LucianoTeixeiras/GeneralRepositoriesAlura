@@ -1,0 +1,14 @@
+CREATE OR REPLACE FUNCTION VERIFICA_SEGMENTO_MERCADO
+    (p_id in segmercado.id%type)
+        RETURN boolean
+IS
+    v_dummy number(1);
+BEGIN
+    SELECT 1 into v_dummy
+        FROM segmercado
+        WHERE id = p_id;
+    RETURN true;
+EXCEPTION   
+    WHEN no_data_found then
+        RETURN false;
+END;

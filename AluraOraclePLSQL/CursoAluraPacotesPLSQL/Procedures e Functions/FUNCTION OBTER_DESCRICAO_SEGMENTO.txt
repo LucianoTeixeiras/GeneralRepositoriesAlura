@@ -1,0 +1,14 @@
+CREATE OR REPLACE FUNCTION OBTER_DESCRICAO_SEGMENTO 
+    (p_id in segmercado.id%type)
+    RETURN segmercado.descricao%type
+IS
+    v_descricao segmercado.descricao%type;
+BEGIN
+    SELECT descricao INTO v_descricao
+       FROM segmercado
+       WHERE id = p_id;
+    RETURN v_descricao;
+EXCEPTION
+        WHEN no_data_found then
+            raise_application_error(-20002,'Segmento de Mercado	Inexistente');
+END;
