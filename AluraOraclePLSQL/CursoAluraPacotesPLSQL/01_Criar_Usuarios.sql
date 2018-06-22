@@ -1,5 +1,7 @@
 -- Criação do ambiente do curso
 
+drop user "USER_DEV" CASCADE;
+
 CREATE USER user_dev IDENTIFIED BY user_dev
 DEFAULT TABLESPACE USERS TEMPORARY TABLESPACE TEMP;
 
